@@ -38,7 +38,11 @@ function calculateTotalprice(products) {
   for (var i = products.length - 1; i >= 0; i--) {
     sum += products[i].price;
   }
-  return sum;
+  return round10(sum);
+}
+
+function round10(nombre) {
+	return (Math.round(nombre*100))/100;
 }
 
 function toString(currency, rateCurrency) {
