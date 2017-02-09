@@ -46,6 +46,14 @@ function calculateTotalprice(products) {
   return round10(sum);
 }
 
+function calculateDuration(products) {
+    var duration = 0;
+    for (var i = products.length - 1; i >= 0; i--) {
+        duration += products[i].getDuration();
+    }
+    return duration;
+}
+
 function round10(nombre) {
 	return (Math.round(nombre*100))/100;
 }
@@ -67,6 +75,7 @@ module.exports = {
     products: products,
     findProducts: findProducts,
     calculateTotalprice: calculateTotalprice,
+    calculateDuration: calculateDuration,
     open: open
   }
 };

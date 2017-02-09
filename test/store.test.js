@@ -24,4 +24,19 @@ describe('Store', function() {
       store.products[10]])).to.be.equal(99.22);
   });
 
+  it('with Book should return right duration', function() {
+    expect(store.calculateDuration([
+      store.products[0]])).to.be.equal(140);
+  });
+
+  it('with DVD should return right duration', function() {
+    expect(store.calculateDuration([
+      store.products[4]])).to.be.equal(178);
+  });
+
+  it('with VideoGame should return right duration', function() {
+    expect(store.calculateDuration([
+      store.products[11]])).to.be.equal(1000);
+  });
+
 });
