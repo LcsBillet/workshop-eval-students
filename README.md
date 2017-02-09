@@ -1,5 +1,7 @@
 # workshop-eval-students
 
+Evaluation Lucas BILLET.
+
 Workshop to evaluate students on basic features with JavaScript.
 
 ## Commands
