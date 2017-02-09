@@ -8,7 +8,7 @@ class Product {
     toString(currency, rateCurrency) {
         var currency = currency || '$';
         var rateCurrency = rateCurrency || 1;
-        return `${chalk.yellow(this.name)} cost ${chalk.red(this.price * rateCurrency)}${currency}`;
+        return `${chalk.yellow(this.name)} cost ${chalk.red(this.price * rateCurrency)}${currency}, duration: ${this.getDuration()} minutes`;
     }
 };
 
@@ -23,9 +23,14 @@ class Product {
 }*/
 
 class Book extends Product {
-      constructor(name, price, isbn) {
+      constructor(name, price, isbn, minDuration, maxDuration) {
         super(name, price);
         this.isbn = isbn;
+        this.minDuration = minDuration;
+        this.maxDuration = maxDuration;
+      }
+      getDuration() {
+        return (this.minDuration+this.maxDuration)/2;
       }
 }
 
@@ -38,9 +43,13 @@ Book.prototype = Object.create(Product.prototype, {
 });*/
 
 class DVD extends Product {
-      constructor(name, price, moovie) {
+      constructor(name, price, moovie, runningTime) {
         super(name, price);
         this.moovie = moovie;
+        this.runningTime = runningTime;
+      }
+      getDuration() {
+        return this.runningTime;
       }
 }
 
@@ -53,9 +62,14 @@ DVD.prototype = Object.create(Product.prototype, {
 });*/
 
 class VideoGame extends Product {
-      constructor(name, price, platform) {
+      constructor(name, price, platform, minDuration, maxDuration) {
         super(name, price);
         this.platform = platform;
+        this.minDuration = minDuration;
+        this.maxDuration = maxDuration;
+      }
+      getDuration() {
+        return (this.minDuration+this.maxDuration)/2;
       }
 }
 
